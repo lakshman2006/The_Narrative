@@ -450,6 +450,21 @@
             padding: 50px;
         }
 
+        .dream-sequence {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            opacity: 0.85;
+            text-shadow: 0 0 8px rgba(200, 200, 255, 0.4);
+            filter: blur(0.3px);
+            animation: dreamFloat 6s ease-in-out infinite alternate;
+            transition: all 0.5s ease;
+        }
+        @keyframes dreamFloat {
+            0%   { transform: translateY(0px); }
+            100% { transform: translateY(-5px); }
+        }
+
+
         /* Animations */
         @keyframes pageSlideIn {
             from { 
@@ -545,12 +560,12 @@
                             <img src="yashu_profile_pic.jpg" alt="Author Profile" class="profile-img">
                             <div class="social-links">
                                 <a href="https://www.instagram.com/yash.cre8s_?igsh=MWFrZGZlMmdsMXl6ZQ==" class="social-link" title="Instagram">📷</a>
-                                <p>Contact : 7075536881</p>
+                                <a href="https://www.linkedin.com/in/sai-yashwanth-panda-pujari-ba0801309/" class="social-link" title="linkedin">🔗</a>
                             </div>
                             <img src="my_profile_pic.jpg" alt="Author Profile" class="profile-img">
                             <div class="social-links">
-                                <a href="#" class="social-link" title="Instagram">📷</a>
-                                <p>Contact : 9347660291</p>
+                                <a href="https://www.instagram.com/s_lakshman2006/?next=%2F" class="social-link" title="Instagram">📷</a>
+                                <a href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=s-lakshman-bb0521324" class="social-link" title="linkedin">🔗</a>
                             </div>
                         </div>
                         <div class="about-text">
@@ -1102,7 +1117,7 @@ And then a whisper in the dark:</p>
                 },
                 6: {
                     title: "Part 6",
-                    content: `<p>Part 6 coming soon...</p>`
+                    content: `<p>Part 6 coming soon</p>`
                 },
                 7: {
                     title: "Part 7",
