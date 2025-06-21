@@ -1190,6 +1190,45 @@ And then a whisper in the dark:</p>
             0% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(0); }
         }
+
+    function makeResponsive() {
+    const width = window.innerWidth;
+
+    if (width <= 768) {
+      // Adjust body font size
+      document.body.style.fontSize = '16px';
+
+      // Apply padding and font size to common containers
+      const responsiveElements = document.querySelectorAll(
+        '.container, .genre-card, .story-item, .part-item'
+      );
+      responsiveElements.forEach(el => {
+        el.style.padding = '1rem';
+        el.style.fontSize = '1rem';
+        el.style.width = '100%';
+        el.style.boxSizing = 'border-box';
+      });
+
+      // Stack nav links vertically
+      const navLinks = document.querySelectorAll('.nav-links');
+      navLinks.forEach(nav => {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.alignItems = 'center';
+        nav.style.gap = '10px';
+      });
+
+      // Logo adjustment for mobile
+      const logo = document.querySelector('.logo');
+      if (logo) {
+        logo.style.fontSize = '1.5rem';
+        logo.style.marginBottom = '10px';
+      }
+    }
+  }
+
+  window.addEventListener('load', makeResponsive);
+  window.addEventListener('resize', makeResponsive);
     `;
     document.head.appendChild(style);
 </script>
