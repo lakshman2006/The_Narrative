@@ -512,132 +512,20 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
-       /* Enhanced Mobile Responsiveness */
+
+        /* Responsive */
         @media (max-width: 768px) {
-            /* General adjustments */
-            body {
-                font-size: 15px;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-                margin-bottom: 10px;
-                text-align: center;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .hero {
-                padding: 60px 10px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                text-align: center;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-                text-align: center;
-            }
-
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 1rem;
-                width: 100%;
-                text-align: center;
-                box-sizing: border-box;
-            }
-
-            .about-container {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .nav-links { gap: 15px; }
+            .genres-grid { grid-template-columns: 1fr; }
+            .about-container { 
                 grid-template-columns: 1fr;
-                gap: 30px;
                 text-align: center;
+                gap: 40px;
             }
-
-            .about-text h2 {
-                font-size: 2rem;
-            }
-
-            .about-text p {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .genres-grid {
-                grid-template-columns: 1fr;
-                padding: 40px 10px;
-            }
-
-            .genre-card {
-                padding: 20px;
-                font-size: 1rem;
-            }
-
-            .genre-card h3 {
-                font-size: 1.5rem;
-            }
-
-            .story-item {
-                padding: 20px;
-                font-size: 1rem;
-            }
-
-            .stories-list h2 {
-                font-size: 2rem;
-            }
-
-            .part-item {
-                padding: 20px;
-                font-size: 1rem;
-            }
-
-            .story-header {
-                font-size: 1.5rem;
-                padding: 0 10px;
-            }
-
-            .story-text {
-                font-size: 1rem;
-                padding: 20px 15px;
-            }
-
-            .coming-soon-text {
-                font-size: 2.5rem;
-            }
-
-            .coming-soon-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .back-button {
-                width: 100%;
-                text-align: center;
-                font-size: 1rem;
-                padding: 10px;
-            }
+            .profile-img { width: 200px; height: 200px; }
         }
-
     </style>
 </head>
 <body>
@@ -1302,7 +1190,46 @@ And then a whisper in the dark:</p>
             0% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(0); }
         }
-    `
+
+    function makeResponsive() {
+    const width = window.innerWidth;
+
+    if (width <= 768) {
+      // Adjust body font size
+      document.body.style.fontSize = '16px';
+
+      // Apply padding and font size to common containers
+      const responsiveElements = document.querySelectorAll(
+        '.container, .genre-card, .story-item, .part-item'
+      );
+      responsiveElements.forEach(el => {
+        el.style.padding = '1rem';
+        el.style.fontSize = '1rem';
+        el.style.width = '100%';
+        el.style.boxSizing = 'border-box';
+      });
+
+      // Stack nav links vertically
+      const navLinks = document.querySelectorAll('.nav-links');
+      navLinks.forEach(nav => {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.alignItems = 'center';
+        nav.style.gap = '10px';
+      });
+
+      // Logo adjustment for mobile
+      const logo = document.querySelector('.logo');
+      if (logo) {
+        logo.style.fontSize = '1.5rem';
+        logo.style.marginBottom = '10px';
+      }
+    }
+  }
+
+  window.addEventListener('load', makeResponsive);
+  window.addEventListener('resize', makeResponsive);
+    `;
     document.head.appendChild(style);
 </script>
 
